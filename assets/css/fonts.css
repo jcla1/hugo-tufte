@@ -4,7 +4,7 @@
   font-family: 'Crimson Text';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/crimson-text-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('{{- Site.BaseURL -}}/fonts/crimson-text-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* crimson-text-italic - latin */
@@ -13,7 +13,7 @@
   font-family: 'Crimson Text';
   font-style: italic;
   font-weight: 400;
-  src: url('/fonts/crimson-text-v19-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('{{- Site.BaseURL -}}/fonts/crimson-text-v19-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* crimson-text-600 - latin */
@@ -22,7 +22,7 @@
   font-family: 'Crimson Text';
   font-style: normal;
   font-weight: 600;
-  src: url('/fonts/crimson-text-v19-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('{{- Site.BaseURL -}}/fonts/crimson-text-v19-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* bebas-neue-regular - latin */
@@ -31,5 +31,5 @@
   font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/bebas-neue-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('{{- Site.BaseURL -}}/fonts/bebas-neue-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
