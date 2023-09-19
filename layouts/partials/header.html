@@ -13,7 +13,7 @@
 
 {{ partial "json-ld/main.html" . }}
 
-{{- $css := slice (resources.Get "css/fonts.css") (resources.Get "css/modern-normalize.css") -}}
+{{- $css := slice (resources.Get "css/fonts.css" | resources.ExecuteAsTemplate "fonts.css" .) (resources.Get "css/modern-normalize.css") -}}
 {{- $scssStyle := resources.Get "scss/hugo-tufte.scss" | resources.ExecuteAsTemplate "main.scss" .  | resources.ToCSS -}}
 
 {{- $css = $css | append $scssStyle | resources.Concat "css/main.css" | resources.PostCSS -}}
