@@ -1,16 +1,15 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-subtitle: Fancy Subtitle
-author: Totally famous person
-date: "{{ .Date }}"
-meta: true
-math: false
-toc: false
-hideDate: false
-hideReadTime: false
-categories: []
-draft: true
-description: ""
----
+{
+  "title": "{{ replace .Name "-" " " | title }}",
+  "subtitle": "Fancy Subtitle",
+  "description": "",
+  "date": "{{ now.Format "2006-01-02" }}",
+  "meta": true,
+  "toc": false,
+  "hideDate": true,
+  "hideReadTime": true,
+  "categories": [],
+  "tags": [],
+  "draft": true
+}
 
 <!--more-->

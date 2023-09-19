@@ -134,24 +134,6 @@ table.lntable {
 }
 
 /* ------------------------------------------------------------------------ */
-/* Styling for maths. */
-/* ------------------------------------------------------------------------ */
-
-/* mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar,
-.katex-display::-webkit-scrollbar {
-  display: none;
-}*/
-
-mjx-container[jax="CHTML"][display="true"],
-.katex-display {
-      overflow: auto;
-      overflow-y: hidden;
-/*     -ms-overflow-style: none;
-    scrollbar-width: none; */
-}
-
-
-/* ------------------------------------------------------------------------ */
 /* Styling for margin/side notes. */
 /* ------------------------------------------------------------------------ */
 .marginnote .marginnote-ind,
@@ -218,27 +200,6 @@ mjx-container[jax="CHTML"][display="true"],
   width: 100%;
 }
 
-.column > p > label.margin-toggle.marginnote-ind {
-  display: inline;
-}
-
-.column > p > .sidenote,
-.column > p > .marginnote {
-  display: none;
-}
-
-.column > p > .margin-toggle:checked + .sidenote,
-.column > p > .margin-toggle:checked + .marginnote {
-  display: block;
-  float: left;
-  left: 1rem;
-  clear: both;
-  width: 95%;
-  margin: 1rem 2.5%;
-  vertical-align: baseline;
-  position: relative;
-}
-
 /* ------------------------------------------------------------------------ */
 /* Styling for buttons. */
 /* ------------------------------------------------------------------------ */
@@ -253,23 +214,6 @@ mjx-container[jax="CHTML"][display="true"],
     font-size: 1.2rem;
 }
 
-/* ------------------------------------------------------------------------ */
-/* Styling for i18n. */
-/* ------------------------------------------------------------------------ */
-
-/* reduce zh & ja font-size to match en */
-
-p:lang(zh), span:lang(zh),
-p:lang(ja), span:lang(ja), {
-    font-size: 1.2rem;
-}
-
-.sidenote:lang(zh),
-.marginnote:lang(zh) {
-    font-size: 0.5rem;
-}
-
-.sidenote:lang(ja),
-.marginnote:lang(ja) {
-    font-size: 0.9rem;
+h1 {
+  margin: 0;
 }

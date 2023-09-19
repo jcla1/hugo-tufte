@@ -1,13 +1,11 @@
 {{ define "main" }}
-<article id="main" class="home-page">
+<article>
 {{ partial "brand.html" . }}
 {{ with .Content }}
-  <section>
-  {{ . }}
-  </section>
+  <section>{{ . }}</section>
 {{ end }}
 <section class="page-list">
-{{ $pgFilter1 := where .Site.RegularPages "Draft" false }}
+{{ $pgFilter1 := where .Site.RegularPages "Section" "posts" }}
 {{ $pgFilter2 := where .Site.RegularPages "Params.date" "!=" nil }}
 {{ $pgFilter := $pgFilter1 | intersect $pgFilter2 }}
 {{ range (.Paginate $pgFilter).Pages }}
@@ -20,11 +18,11 @@
   </h2>
 
   {{ if .Description }}
-  <p>{{ .Description }}</p>
+    <p>{{ .Description | markdownify }}</p>
   {{ else }}
-  {{ if .Site.Params.showSummary }}
-  <p>{{ truncate 140 .Summary }}</p>
-  {{ end }}
+    {{ if .Site.Params.showSummary }}
+    <p>{{ truncate 140 .Summary }}</p>
+    {{ end }}
   {{ end }}
 {{ end }}
 </section>
@@ -39,7 +37,7 @@
 </span>
 
 <span class="pagination-indicator">
-{{.Paginator.PageNumber}} / {{.Paginator.TotalPages}}
+{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}
 </span>
 
 <span class="next-page">
@@ -49,7 +47,6 @@
 </span>
 
 {{ end }}
-
-{{ partial "footer.html" . }}
 </article>
+{{ partial "footer.html" . }}
 {{ end }}

@@ -1,5 +1,5 @@
 /* Footer, but with a different name to avoid conflicts with tufte.css */
-footer.page-footer{
+footer.page-footer {
     margin-top: 1.4rem;
     color: #aaa;
     width: 95%;
@@ -26,7 +26,7 @@ footer.page-footer ul.page-footer-menu {
 	/*text-align:center;*/
 	margin: 0;
 	padding: 0;
-    width: unset;
+        width: unset;
 }
 
 footer.page-footer ul.page-footer-menu li {
@@ -35,8 +35,6 @@ footer.page-footer ul.page-footer-menu li {
 	// font-size: 55%;
 }
 
-.copyright {
-}
 .copyright p {
     font-size: 90%;
 }

@@ -1,0 +1,1 @@
+ [sidenote: {{ .Inner | markdownify }}] {{/* for preserving whitespace */}}

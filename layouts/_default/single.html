@@ -1,15 +1,29 @@
-{{/*  
-
-  This template render single pages 
-
-*/}}
-
 {{ define "main" }}
 <article id="main">
   {{ partial "content.header.html" . }}
   {{ partial "toc.html" . }}
   <section>{{ .Content }}</section>
-  <section>{{ partial "footer.html" . }}</section>
-  <section>{{ partial "nav.html" . }}</section>
+
+  {{- if and (.IsPage) (.Params.meta) -}}
+  <span class="content-meta">
+    {{- if .Params.author -}}
+    <p class="author">{{ .Params.author }}</p>
+    {{- end -}}
+
+    {{- if not .Params.hidedate -}}
+    <p class="date">{{ .Date.Format "2006-01-02" }}</p>
+    {{- end -}}
+
+    {{- if not .Params.hidereadtime -}}
+    <span>{{ .ReadingTime }} min read&nbsp;</span>
+    {{- end -}}
+
+    {{- range .Params.tags -}}
+    <a href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;
+    {{- end -}}
+  </span>
+  {{- end -}}
 </article>
+{{ partial "footer.html" . }}
+{{ partial "nav.html" . }}
 {{ end }}

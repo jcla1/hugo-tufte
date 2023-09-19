@@ -1,0 +1,38 @@
+{{- $blogPosts := slice -}}
+{{- $pages := where (where .Site.Pages "Section" "posts") "IsSection" false -}}
+{{- range $idx, $post := first 5 $pages -}}
+  {{- $keywords := ($post.Params.tags | default (slice)) -}}
+  {{- $blogPosts = $blogPosts | append (dict
+    "@type" "BlogPosting"
+    "@id" $post.Permalink
+    "mainEntityOfPage" $post.Permalink
+    "headline" $post.Title
+    "name" $post.Title
+    "abstract" ($post.Description | plainify)
+    "datePublished" $post.Date
+    "dateModified" $post.Lastmod
+    "author" (dict
+        "@type" "Person"
+        "name" ($post.Params.Author | default $.Site.Params.author)
+    )
+    "url" $post.Permalink
+    "keywords" $keywords
+  ) -}}
+{{- end -}}
+
+{{-
+$item := dict
+  "@context" "https://schema.org/"
+  "@type" "Blog"
+  "@id" .Permalink
+  "mainEntityOfPage" .Permalink
+  "name" .Site.Title
+  "description" .Site.Params.description
+  "publisher" (dict
+        "@type" "Person"
+        "name" .Site.Params.author
+  )
+  "blogPost" $blogPosts
+-}}
+
+{{ return ($item) }}

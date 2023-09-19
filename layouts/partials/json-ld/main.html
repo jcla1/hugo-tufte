@@ -1,0 +1,5 @@
+<script type="application/ld+json">
+{{ if .IsHome }}
+{{- with partial "json-ld/home.html" . -}}{{ jsonify (dict "indent" "  ") . | safeJS }}{{- end -}}
+{{ end }}
+</script>

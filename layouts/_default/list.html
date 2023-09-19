@@ -1,17 +1,12 @@
 {{ define "main" }}
 
-<div id="layout" class="pure-g">
-<article class="pure-u-1">
-
+<article>
 {{ partial "brand.html" . }}
 {{ partial "content.header.html" . }}
 
 <section class="list-page">
 {{ range .Data.Pages.GroupByDate "2006" }}
   <ul>
-  <li class="year">{{ .Key }} ({{ len .Pages }})</li>
-    {{ range .Pages.GroupByDate "January" }}
-    <ul>
     <li>{{ .Key }} ({{ len .Pages }})</li>
       {{ range .Pages }}
       <ul>
@@ -23,14 +18,8 @@
       {{ end }}
     </li>
     </ul>
-    {{ end }}
-  </ul>
   {{ end }}
 </section>
-
-{{ partial "footer.html" . }}
-
 </article>
-</div>
-
+{{ partial "footer.html" . }}
 {{ end }}
