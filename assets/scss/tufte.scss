@@ -7,6 +7,10 @@ $sans-fonts: "Gill Sans", "Gill Sans MT", Calibri, sans-serif, "Noto Emoji";
 $mono-fonts: Consolas, "Liberation Mono", Menlo, Courier, monospace, "Noto Emoji";
 
 /* Tufte CSS styles */
+* {
+  font-synthesis: none;
+}
+
 html {
     font-size: 15px;
 }
@@ -49,7 +53,7 @@ h3 {
 }
 
 .author, .date {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 400;
   margin: 1rem auto 1rem 0;
   line-height: 1;

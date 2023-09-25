@@ -1,0 +1,19 @@
+{{- $keywords := (.Params.tags | default (slice)) -}}
+{{- $item := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "@id" .Permalink
+  "mainEntityOfPage" .Permalink
+  "headline" .Title
+  "name" .Title
+  "abstract" (.Description | plainify)
+  "datePublished" .Date
+  "dateModified" .Lastmod
+  "author" (dict
+      "@type" "Person"
+      "name" (.Params.Author | default $.Site.Params.author)
+  )
+  "url" .Permalink
+  "keywords" $keywords
+-}}
+{{ return ($item) }}

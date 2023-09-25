@@ -1,15 +1,15 @@
 /* Content meta-data such as author, publication date, etc. */
 .content-meta {
     display: block;
-    /*color: rgba(155, 155, 155, 1);*/
-    // color: rgba(100, 105, 110, 1);
     font-size: 1.1rem;
     margin-top: 1em;
+    width: 95%;
+    max-width: 45rem;
 }
 
-.content-meta .author {
-    /*color: rgb(90, 20, 55)*/
-    // color: rgba(65, 70, 75, 1);
+.content-meta .tag {
+  float: right;
+  margin-left: 0.5rem;
 }
 
 .post-avatar {

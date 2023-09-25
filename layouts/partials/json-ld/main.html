@@ -1,5 +1,11 @@
+{{ if or (.IsHome) (.IsPage) }}
 <script type="application/ld+json">
 {{ if .IsHome }}
 {{- with partial "json-ld/home.html" . -}}{{ jsonify (dict "indent" "  ") . | safeJS }}{{- end -}}
+{{ else if and (.IsPage) (eq .Section "posts") }}
+{{- with partial "json-ld/post.html" . -}}{{ jsonify (dict "indent" "  ") . | safeJS }}{{- end -}}
+{{ else if and (.IsPage) (eq .Section "reviews") }}
+{{- with partial "json-ld/review.html" . -}}{{ jsonify (dict "indent" "  ") . | safeJS }}{{- end -}}
 {{ end }}
 </script>
+{{ end }}
