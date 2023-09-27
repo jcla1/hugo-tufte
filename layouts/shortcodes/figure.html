@@ -27,7 +27,7 @@
 
   {{- if or (or (.Get "caption") (.Get "attr")) (eq $type "margin") -}}<!-- begin marginnote -->
     <label for="{{ $label }}" class="margin-toggle marginnote-ind">{{ $ind }}</label>
-    <span class="marginnote">
+    <span class="marginimage marginnote">
   {{- end -}}
 
   {{- if eq $type "margin" -}}<!-- margin image inside marginnote -->

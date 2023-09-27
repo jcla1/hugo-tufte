@@ -18,7 +18,7 @@ html {
 body {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 12.5%;
+    padding: 0 10%;
     font-family: $serif-fonts;
     background-color: #fffff8;
     color: #111;
@@ -307,7 +307,7 @@ div.table-wrapper {
     h3,
     p,
     footer {
-        width: 90%;
+        width: 100%;
     }
     ul,
     ol,
@@ -422,23 +422,20 @@ label.marginnote-ind {
     label.marginnote-ind {
         display: inline;
     }
-
     .sidenote,
     .marginnote {
-      /*
-        display: none;
-    }
-    .margin-toggle:checked + .sidenote,
-    .margin-toggle:checked + .marginnote {
-    */
         display: block;
         float: left;
-        left: 1rem;
         clear: both;
         width: 95%;
         margin: 1rem 2.5%;
         vertical-align: baseline;
         position: relative;
+    }
+    .marginimage.marginnote {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
     pre.code {
         width: 90%;

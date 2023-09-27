@@ -16,8 +16,13 @@
 {{- $css = $css | append $scssStyle | resources.Concat "css/main.css" | resources.PostCSS -}}
 {{ if hugo.IsProduction }}
 {{ $css = $css | minify | fingerprint | resources.PostProcess }}
-<link href="{{ $css.RelPermalink }}" rel="stylesheet" integrity="{{ $css.Data.Integrity }}" />
+<link href="{{ $css.Permalink }}" rel="stylesheet" integrity="{{ $css.Data.Integrity }}" />
 {{ else }}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+{{ end }}
+
+{{ if (.HasShortcode "math") }}
+{{ $katex := resources.Get "css/katex.min.css" | resources.ExecuteAsTemplate "katex.min.css" . | fingerprint }}
+<link href="{{ $katex.Permalink }}" rel="stylesheet" integrity="{{ $katex.Data.Integrity }}" />
 {{ end }}
 </head>
