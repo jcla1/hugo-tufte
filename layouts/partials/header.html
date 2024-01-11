@@ -14,7 +14,7 @@
 {{- $css := slice (resources.Get "css/fonts.css" | resources.ExecuteAsTemplate "fonts.css" .) (resources.Get "css/modern-normalize.css") -}}
 {{- $scssStyle := resources.Get "scss/hugo-tufte.scss" | resources.ExecuteAsTemplate "main.scss" .  | resources.ToCSS -}}
 {{- $css = $css | append $scssStyle | resources.Concat "css/main.css" | resources.PostCSS -}}
-{{ if not hugo.IsDevelopment }}
+{{ if not (eq hugo.Environment "development") }}
 {{ $css = $css | minify | fingerprint | resources.PostProcess }}
 <link href="{{ $css.Permalink }}" rel="stylesheet" integrity="{{ $css.Data.Integrity }}" />
 {{ else }}

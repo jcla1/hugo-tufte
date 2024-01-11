@@ -1,10 +1,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
-<meta name="keywords" content="">
-<meta name="subtitle" content="">
-<meta name="author" content="">
-<meta name="language" content="en-GB">
+
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.Description }}{{ end }}{{ end }}">
+<meta name="keywords" content="{{ with .Params.Tags }}{{ delimit . ","  }}{{ else }}{{ with .Site.Params.Tags }}{{ delimit . "," }}{{ end }}{{ end }}">
+<meta name="subtitle" content="{{ with .Params.Subtitle }}{{ . }}{{ else }}{{ with .Site.Params.Subtitle }}{{ . }}{{ end }}{{ end }}">
+<meta name="author" content="{{ with .Params.Author }}{{ . }}{{ else }}{{ with .Site.Params.Author }}{{ . }}{{ end }}{{ end }}">
+<meta name="language" content="{{ with .Language.LanguageCode }}{{ . }}{{ else }}{{ with .Site.LanguageCode }}{{ . }}{{ end }}{{ end }}">
 
 
 <title>{{ if not .IsHome }}{{ .Title  }} - {{ end }}{{ .Site.Title }}</title>
