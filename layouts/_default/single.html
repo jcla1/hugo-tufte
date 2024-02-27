@@ -4,23 +4,25 @@
   {{ partial "toc.html" . }}
   <section>{{ .Content }}</section>
 
-  {{- if and (.IsPage) (.Params.meta) -}}
+  {{- if and (.IsPage) (not (.Params.hidemeta)) -}}
   <span class="content-meta">
-    {{- if .Params.author -}}
-    <span class="author">{{ .Params.author }}</span>
+    {{- if or (.Params.author) (.Site.Params.Author) -}}
+    <span class="author">{{ default .Site.Params.Author .Params.author }}</span>
     {{- end -}}
 
     {{- if not .Params.hidedate -}}
     <span class="date">{{ .Date.Format "2006-01-02" }}</span>
     {{- end -}}
 
-    {{- if not .Params.hidereadtime -}}
-    <span>{{ .ReadingTime }} min read&nbsp;</span>
+    {{- if and (not .Params.hidereadtime) (not .Site.Params.hidereadtime) -}}
+    <span class="read-time">{{ .ReadingTime }} min read</span>
     {{- end -}}
 
+    <span class="post-tags">
     {{- range .Params.tags -}}
-    <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;
+    <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
     {{- end -}}
+    </span>
   </span>
   {{- end -}}
 </article>
